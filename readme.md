@@ -1,3 +1,8 @@
+# How to use?
+````
+npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-native-template-clean-arch.git
+````
+
 # Why this template? What needs does it solve?
 This is a template for react native applications, the main motivation for this template is to use as many native features as possible for the requirements of modern applications such as scalability and maintainability over time. The reason for using native platform features is because they offer better performance than features that run on the JS thread.
 
