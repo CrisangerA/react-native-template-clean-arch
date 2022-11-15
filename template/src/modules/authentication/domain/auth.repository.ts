@@ -6,4 +6,5 @@ export default interface AuthRepository {
   forgotPassword(email: string): Promise<void>;
   resetPassword(code: string, newPassword: string): Promise<void>;
   register(email: string, password: string): Promise<User>;
+  //getCurrentUser(): Promise<User>;
 }

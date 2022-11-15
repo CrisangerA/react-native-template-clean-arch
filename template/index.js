@@ -6,10 +6,10 @@ import auth from '@react-native-firebase/auth';
 import WrapApp from './App';
 // Screens
 import LoginScreen from './src/ui/pages/auth/login';
-import RegisterScreen from './src/ui/pages/auth/register';
 import LandingScreen from './src/ui/pages/landing';
 import HomeScreen from './src/ui/pages/home';
 import AccountScreen from 'src/ui/pages/auth/account';
+import ForgotPassword from '@components/auth/ForgotPassword';
 
 // Navigation
 Navigation.setDefaultOptions({
@@ -55,6 +55,10 @@ Navigation.setDefaultOptions({
   hardwareBackButton: {
     popStackOnPress: false,
   },
+  modalPresentationStyle: 'overCurrentContext',
+  layout: {
+    backgroundColor: 'transparent',
+  },
 });
 
 // Screens
@@ -79,16 +83,16 @@ Navigation.registerComponent(
   () => LoginScreen,
 );
 Navigation.registerComponent(
-  'RegisterScreen',
+  'ForgotPassword',
   () => props =>
     (
       <WrapApp {...props}>
-        <RegisterScreen {...props} />
+        <ForgotPassword {...props} />
       </WrapApp>
     ),
-  () => RegisterScreen,
+  () => ForgotPassword,
 );
-
+// Auth
 Navigation.registerComponent(
   'HomeScreen',
   () => props =>
@@ -177,16 +181,6 @@ Navigation.events().registerAppLaunchedListener(() => {
         root: {
           stack: {
             children: [
-              // {
-              //   component: {
-              //     name: 'LoginScreen',
-              //   },
-              // },
-              // {
-              //   component: {
-              //     name: 'RegisterScreen',
-              //   },
-              // },
               {
                 component: {
                   name: 'LandingScreen',

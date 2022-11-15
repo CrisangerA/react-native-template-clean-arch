@@ -11,16 +11,17 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.17.11",
+    "@react-native-async-storage/async-storage": "1.17.11",
+    "@react-native-community/blur": "4.3.0",
     "@react-native-firebase/app": "16.4.3",
     "@react-native-firebase/auth": "16.4.3",
     "react": "18.1.0",
-    "react-hook-form": "^7.39.3",
+    "react-hook-form": "7.39.3",
     "react-native": "0.70.5",
-    "react-native-keychain": "^8.1.1",
+    "react-native-keychain": "8.1.1",
     "react-native-navigation": "7.30.1",
-    "reflect-metadata": "^0.1.13",
-    "tsyringe": "^4.7.0"
+    "reflect-metadata": "0.1.13",
+    "tsyringe": "4.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

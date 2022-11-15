@@ -1,23 +1,30 @@
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import useNavigation from '@hooks/useNavigation';
 import Page from '@components/layout/Page';
-import {textStyles} from '@components/layout/styles';
+import Text from '@components/core/Text';
+import Button from '@components/core/Button';
+import Box from '@components/layout/Box';
+import AuthBackground from '@components/auth/Background';
 
 export default function LandingScreen() {
   const {goTo} = useNavigation();
 
   return (
     <Page>
+      <AuthBackground />
       <View style={styles.root}>
-        <Text style={textStyles.title}>React Native | Native Template</Text>
-        <Text style={textStyles.subtitle}>Landing Screen</Text>
-        <Text style={textStyles.subtitle}>Hermes Engine</Text>
-        <Text style={textStyles.subtitle}>React Native Turbo Modules</Text>
-        <Text style={textStyles.subtitle}>Animations between screens</Text>
-
-        <Button title="Login" onPress={() => goTo('LoginScreen')} />
-        <Button title="Register" onPress={() => goTo('RegisterScreen')} />
+        <Text type="pageTitle" text="React Native | Native Template" />
+        <Text type="title" text="Landing Screen" />
+        <Text type="subtitle" text="* Hermes Engine" />
+        <Text type="subtitle" text="* React Native Turbo Modules" />
+        <Text type="subtitle" text="* Animations between screens" />
+        <Box mb={12} />
+        <Button
+          type="outlined"
+          title="Empezar"
+          onPress={() => goTo('LoginScreen')}
+        />
       </View>
     </Page>
   );

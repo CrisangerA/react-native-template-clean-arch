@@ -9,10 +9,14 @@ import {createContext, PropsWithChildren} from 'react';
 interface Props {
   componentId: string;
   goTo: (screen: string) => void;
+  showModal: (name: string, props?: any) => void;
+  dismissModal: () => void;
 }
 const initialState: Props = {
   componentId: '',
   goTo: () => {},
+  showModal: () => {},
+  dismissModal: () => {},
 };
 const NavigationContext = createContext<Props>(initialState);
 
@@ -35,11 +39,24 @@ function NavigationProvider({
       },
     });
   }
+  function showModal(name: string, props?: any) {
+    Navigation.showModal({
+      component: {
+        name,
+        passProps: props,
+      },
+    });
+  }
+  function dismissModal() {
+    Navigation.dismissModal(componentId);
+  }
   return (
     <NavigationContext.Provider
       value={{
         componentId,
         goTo,
+        showModal,
+        dismissModal,
       }}>
       {children}
     </NavigationContext.Provider>

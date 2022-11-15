@@ -24,7 +24,7 @@ export default class AuthService {
   resetPassword(code: string, newPassword: string) {
     return this.repository.resetPassword(code, newPassword);
   }
-  register(email: string, password: string) {
+  registerNewUser(email: string, password: string) {
     return this.repository.register(email, password);
   }
 }
