@@ -10,6 +10,11 @@ This is a template for react native applications, the main motivation for this t
 
 Among other things the project includes this plugin https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture that will help you to build the rest of your application with the onion architecture concept https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html.
 
+## Strucure folders
+All source code is in src/*
+All logic and code src/modules/*
+All Visual components src/ui/*
+
 ## Extra
 - Hermes Engine
 - [React Native Turbo Modules (New Architecture)](https://reactnative.dev/docs/the-new-architecture/landing-page)
@@ -27,7 +32,7 @@ Verify the versions in the package.json
 - [Firebase](https://rnfirebase.io/)
 - [React Hook Form](https://react-hook-form.com/get-started#ReactNative)
 
-- [ ][React Native Keychain](https://github.com/oblador/react-native-keychain) key Keychain Access for React Native
+- [][React Native Keychain](https://github.com/oblador/react-native-keychain) key Keychain Access for React Native
 
 
 ### troubleshoot
