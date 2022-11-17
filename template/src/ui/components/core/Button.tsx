@@ -1,7 +1,7 @@
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import React from 'react';
 import Text from './Text';
-
+import {buttonStyles as styles} from './styles';
 interface Props {
   type: 'root' | 'transparent' | 'outlined';
   title: string;
@@ -19,18 +19,3 @@ export default function Button({type, title, onPress, disabled}: Props) {
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    padding: 12,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-    borderRadius: 16,
-    elevation: 10,
-  },
-  transparent: {
-    elevation: 0,
-  },
-  outlined: {},
-});

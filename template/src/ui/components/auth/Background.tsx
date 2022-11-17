@@ -1,5 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
+import {Theme} from '@components/core/config';
 
 export default function AuthBackground() {
   // Background
@@ -42,14 +43,14 @@ const styles = StyleSheet.create({
   },
   square: {
     position: 'absolute',
-    backgroundColor: '#f50057',
+    backgroundColor: Theme.color.primary,
     width: 200,
     height: 200,
     borderRadius: 30,
     elevation: 10,
   },
   border: {
-    borderColor: 'yellow',
+    borderColor: Theme.color.secondary,
     borderWidth: 12,
     width: 100,
     height: 100,

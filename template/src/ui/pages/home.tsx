@@ -12,7 +12,7 @@ import Box from '@components/layout/Box';
 
 const implementation = container.resolve(LocalStorage);
 
-export default function LandingScreen() {
+export default function HomeScreen() {
   const [user, setUser] = React.useState<string | null>('');
   async function onPress() {
     await auth().signOut();
