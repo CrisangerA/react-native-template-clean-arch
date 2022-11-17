@@ -8,7 +8,7 @@ import {createContext, PropsWithChildren} from 'react';
 // ---------------------------------------------------------------------------------------------------
 interface Props {
   componentId: string;
-  goTo: (screen: string) => void;
+  goTo: (screen: string, props?: any) => void;
   showModal: (name: string, props?: any) => void;
   dismissModal: () => void;
 }
@@ -24,11 +24,12 @@ function NavigationProvider({
   componentId,
   children,
 }: PropsWithChildren<NavigationComponentProps>) {
-  function goTo(screen: string) {
+  function goTo(screen: string, props?: any) {
     Navigation.push(componentId, {
       //Navigation.push('AuthStack', {
       component: {
         name: screen,
+        passProps: props,
         options: {
           sideMenu: {
             left: {
