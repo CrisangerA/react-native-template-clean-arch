@@ -1,6 +1,6 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Theme} from '@components/core/config';
+import {Theme} from '@config/styles';
 
 export default function AuthBackground() {
   // Background
