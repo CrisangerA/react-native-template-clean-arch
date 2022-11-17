@@ -1,4 +1,4 @@
-# How to use?
+# How to start use?
 ````
 npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-native-template-clean-arch.git
 ````
@@ -8,15 +8,25 @@ This is a template for react native applications, the main motivation for this t
 
 Among other things the project includes this plugin https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture that will help you to build the rest of your application with the onion architecture concept https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html.
 
+## Configuration
+Global configuration of styles, api routes, navigation and dependency injection are located in src/config.
+* Navigation
+  - Define type of root navigation
+  - If you created a new screen describe it here. Only Screens not Modals
+* Style
+  - Colors
+  - Font Sizes
+  - Spacings
+
 ## Strucure folders
 ![Folders](https://user-images.githubusercontent.com/46910469/202018217-40fb3fba-a2f6-4916-b5a5-08713a125d15.png)
 
 ## Extra
 - Hermes Engine
+- Dependency Injection
 - [React Native Turbo Modules (New Architecture)](https://reactnative.dev/docs/the-new-architecture/landing-page)
 - [Animations between screens](https://wix.github.io/react-native-navigation/docs/style-animations/)
 - [Eslint Plugin Hexagonal Architecture](https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture)
-- [Dependency Injection]()
 
 ## Features
 Verify the versions in the package.json
@@ -27,6 +37,7 @@ Verify the versions in the package.json
 - [React Native Async Storage](https://react-native-async-storage.github.io/async-storage/)
 - [Firebase](https://rnfirebase.io/)
 - [React Hook Form](https://react-hook-form.com/get-started#ReactNative)
+- [React Query](https://tanstack.com/query/v4/docs/installation)
 
 - [][React Native Keychain](https://github.com/oblador/react-native-keychain) key Keychain Access for React Native
 

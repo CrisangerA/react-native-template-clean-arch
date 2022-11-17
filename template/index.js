@@ -5,7 +5,7 @@ import auth from '@react-native-firebase/auth';
 // Providers
 import WrapApp from './App';
 // Screens
-import {NavigationTypes, Screens} from './src/navigation';
+import {NavigationTypes, Screens} from './src/config/navigation';
 
 // Launch App
 class ReactApp {

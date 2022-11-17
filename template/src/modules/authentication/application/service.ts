@@ -1,6 +1,6 @@
-import StorageRepository from '@modules/shared/domain/storage.repository';
+import StorageRepository from '@modules/shared/domain/repository/storage.repository';
 import {inject, injectable} from 'tsyringe';
-import AuthRepository from '../domain/auth.repository';
+import AuthRepository from '../domain/repository';
 
 @injectable()
 export default class AuthService {
@@ -24,7 +24,9 @@ export default class AuthService {
   resetPassword(code: string, newPassword: string) {
     return this.repository.resetPassword(code, newPassword);
   }
-  registerNewUser(email: string, password: string) {
-    return this.repository.register(email, password);
+  async registerNewUser(email: string, password: string) {
+    const user = await this.repository.register(email, password);
+    this.storage.StoreLocalData('user', JSON.stringify(user));
+    return user;
   }
 }

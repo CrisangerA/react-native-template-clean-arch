@@ -13,7 +13,8 @@
       "@components/*": ["./src/ui/components/*"],
       "@contexts/*": ["./src/ui/contexts/*"],
       "@hooks/*": ["./src/ui/hooks/*"],
-      "@modules/*": ["./src/modules/*"]
+      "@modules/*": ["./src/modules/*"],
+      "@config/*": ["./src/config/*"],
     },
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true

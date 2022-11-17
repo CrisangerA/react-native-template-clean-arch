@@ -15,6 +15,7 @@ module.exports = {
           '@contexts': ['./src/ui/contexts'],
           '@hooks': ['./src/ui/hooks'],
           '@modules': ['./src/modules'],
+          '@config': ['./src/config'],
         },
       },
     ],

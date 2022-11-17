@@ -6,5 +6,5 @@ export default function Page({children}: PropsWithChildren) {
 }
 
 const styles = StyleSheet.create({
-  root: {flex: 1, padding: 10},
+  root: {flex: 1, padding: 10, backgroundColor: 'white'},
 });
