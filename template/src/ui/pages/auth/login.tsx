@@ -7,7 +7,7 @@ import {
   ToastAndroid,
 } from 'react-native';
 import {useForm} from 'react-hook-form';
-import {container} from 'tsyringe';
+//import {container} from 'tsyringe';
 // @Modules
 import AuthService from '@modules/authentication/application/service';
 // @Components
@@ -18,6 +18,7 @@ import {CardTitle} from '@components/core/Card';
 import Box from '@components/layout/Box';
 import Button from '@components/core/Button';
 import AuthBackground from '@components/auth/Background';
+import injector from '@config/di';
 
 interface FormData {
   email: string;
@@ -28,7 +29,8 @@ const MODAL_TYPE = {
   FORGOT: 1,
   RESET: 2,
 };
-const implementation = container.resolve(AuthService);
+const implementation = injector.injectClass(AuthService);
+//const implementation = container.resolve(AuthService);
 export default function LoginScreen() {
   const {showModal} = useNavigation();
   const [isNewRegister, setIsNewRegister] = React.useState(false);

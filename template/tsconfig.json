@@ -15,8 +15,6 @@
       "@hooks/*": ["./src/ui/hooks/*"],
       "@modules/*": ["./src/modules/*"],
       "@config/*": ["./src/config/*"],
-    },
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    }
   }
 }

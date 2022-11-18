@@ -1,12 +1,14 @@
-import {inject, injectable} from 'tsyringe';
+//import {injectable} from 'tsyringe';
 import HttpRepository from '../domain/repository/http.repository';
 import {ApiResponse, ApiResponseValues} from '../domain/model';
 
-@injectable()
+//@injectable()
 export default class Http implements HttpRepository {
   constructor(
-    @inject('API_ROUTE_ROOT') private readonly API_ROUTE_ROOT: string,
+    //@inject('API_ROUTE_ROOT') private readonly API_ROUTE_ROOT: string,
+    private readonly API_ROUTE_ROOT: string,
   ) {}
+  public static inject = ['API_ROUTE_ROOT'] as const;
   private getRoute = (route: string) => `${this.API_ROUTE_ROOT}${route}`;
   private headers = () => {
     return {

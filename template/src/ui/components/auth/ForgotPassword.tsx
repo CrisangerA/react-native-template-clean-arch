@@ -2,20 +2,22 @@ import {BackHandler, StyleSheet, Text, ToastAndroid, View} from 'react-native';
 import React from 'react';
 import TextInput from '@components/@forms/TextInput';
 import {useForm} from 'react-hook-form';
-import {container} from 'tsyringe';
+//import {container} from 'tsyringe';
 import AuthService from '@modules/authentication/application/service';
 import {BlurView} from '@react-native-community/blur';
 import delay from '@modules/shared/domain/utils';
 import useNavigation from '@hooks/useNavigation';
 import Button from '@components/core/Button';
 import {CardTitle} from '@components/core/Card';
+import injector from '@config/di';
 
 interface FormData {
   email: string;
   newPassword: string;
   code: string;
 }
-const implementation = container.resolve(AuthService);
+const implementation = injector.injectClass(AuthService);
+//const implementation = container.resolve(AuthService);
 export default function ForgotPassword() {
   const {dismissModal} = useNavigation();
   const [showModal, setShowModal] = React.useState(false);

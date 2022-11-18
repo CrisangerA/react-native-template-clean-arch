@@ -1,4 +1,4 @@
-import {container} from 'tsyringe';
+//import {container} from 'tsyringe';
 import auth from '@react-native-firebase/auth';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import React from 'react';
@@ -12,9 +12,11 @@ import Box from '@components/layout/Box';
 import Http from '@modules/shared/infrastructure/http.implementation';
 import COINGECKO_API_ROUTES from 'src/config/api.routes';
 import useQuery from '@hooks/useQuery';
+import injector from '@config/di';
 
-const implementation = container.resolve(LocalStorage);
-const http = container.resolve(Http);
+//const implementation = container.resolve(LocalStorage);
+const implementation = injector.injectClass(LocalStorage);
+const http = injector.injectClass(Http);
 
 export default function HomeScreen() {
   // @Hooks

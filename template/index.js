@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import React from 'react';
 import {Navigation} from '@imports/react-native-navigation';
 import auth from '@react-native-firebase/auth';
