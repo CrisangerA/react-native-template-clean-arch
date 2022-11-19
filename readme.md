@@ -4,7 +4,9 @@ npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-
 ````
 
 # Why this template? What needs does it solve?
-This is a template for react native applications, the main motivation for this template is to use as many native features as possible for the requirements of modern applications such as scalability and maintainability over time. The reason for using native platform features is because they offer better performance than features that run on the JS thread.
+The main function of this template is to meet the requirements of modern applications in terms of scalability and maintainability over time. That is why it was implemented with the concept of clean architecture (Onion architecture).
+
+The main motivation for this template is to use as many native features as possible for the requirements of modern applications such as scalability and maintainability over time. The reason for using native platform features is because they offer better performance than features that run on the JS thread.
 
 Among other things the project includes this plugin https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture that will help you to build the rest of your application with the onion architecture concept https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html.
 
@@ -19,7 +21,8 @@ Global configuration of styles, api routes, navigation and dependency injection 
   - Spacings
 
 ## Strucure folders
-![Folders](https://user-images.githubusercontent.com/46910469/202018217-40fb3fba-a2f6-4916-b5a5-08713a125d15.png)
+![Folders (1)](https://user-images.githubusercontent.com/46910469/202868548-5fd65a2d-992d-41d8-8101-013d13a74b69.png)
+
 
 ## Extra
 - Hermes Engine
