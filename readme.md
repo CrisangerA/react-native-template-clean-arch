@@ -33,7 +33,7 @@ Verify the versions in the package.json
 - React Native 70.x
 - Typescript
 - [React Native Navigation](https://wix.github.io/react-native-navigation/docs/before-you-start/)
-- [Tsrynge](https://github.com/Microsoft/tsyringe) Lightweight dependency injection container for JavaScript/TypeScript
+- [Typed-Inject](https://github.com/nicojs/typed-inject) Lightweight dependency injection container for JavaScript/TypeScript
 - [React Native Async Storage](https://react-native-async-storage.github.io/async-storage/)
 - [Firebase](https://rnfirebase.io/)
 - [React Hook Form](https://react-hook-form.com/get-started#ReactNative)
