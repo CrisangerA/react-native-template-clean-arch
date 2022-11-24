@@ -4,11 +4,11 @@ npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-
 ````
 I recomend this library after init project. [React Native Rename](https://github.com/junedomingo/react-native-rename)
 
-## For create new components:
+### For create new components:
 ````
 yarn component nameOfYourComponent
 ````
-## For create new modules:
+### For create new modules:
 ````
 yarn component nameOfYourModule
 ````
@@ -27,21 +27,21 @@ Among other things the project includes this plugin https://www.npmjs.com/packag
 
 ## Configuration
 Global configuration of styles, api routes, navigation and dependency injection are located in src/config.
-* #### navigation.ts
+* navigation.ts
   - Define type of root navigation
   - If you created a new screen describe it here. Only Screens not Modals
-* #### style.ts
+* style.ts
   - Colors
   - Font Sizes
   - Spacings
-* #### di.ts
+* di.ts
   - Configuration of dependency injection. Check it when your run the command: yarn module
 
-* #### api.routes.ts
+* api.routes.ts
   - Endpoinds of your API's
 
 ## Strucure folders
-![Folders (1)](https://user-images.githubusercontent.com/46910469/202868548-5fd65a2d-992d-41d8-8101-013d13a74b69.png)
+![Folders (2)](https://user-images.githubusercontent.com/46910469/203866311-20f5fd19-2c83-4d28-8dbd-de91710d344d.png)
 
 
 ## Extra
