@@ -1,12 +1,8 @@
 import StorageRepository from '@modules/shared/domain/repository/storage.repository';
-//import {inject} from 'tsyringe';
 import AuthRepository from '../domain/repository';
 
-//@injectable()
 export default class AuthService {
   constructor(
-    // @inject('AuthRepository') private readonly repository: AuthRepository,
-    // @inject('StorageRepository') private readonly storage: StorageRepository,
     private readonly repository: AuthRepository,
     private readonly storage: StorageRepository,
   ) {}

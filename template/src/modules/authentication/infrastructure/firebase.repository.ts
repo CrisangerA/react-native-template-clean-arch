@@ -1,9 +1,7 @@
 import AuthRepository from '@modules/authentication/domain/repository';
 import auth from '@react-native-firebase/auth';
-//import {singleton} from 'tsyringe';
 import User, {UserValues} from '../domain/model';
 
-//@singleton()
 export default class FirebaseRepository implements AuthRepository {
   forgotPassword(email: string) {
     return auth().sendPasswordResetEmail(email);

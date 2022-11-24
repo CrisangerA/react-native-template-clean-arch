@@ -2,7 +2,16 @@
 ````
 npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-native-template-clean-arch.git
 ````
-I recomend this library after init project. (React Native Rename)[https://github.com/junedomingo/react-native-rename]
+I recomend this library after init project. [React Native Rename](https://github.com/junedomingo/react-native-rename)
+
+## For create new components:
+````
+yarn component nameOfYourComponent
+````
+## For create new modules:
+````
+yarn component nameOfYourModule
+````
 
 # Why this template? What needs does it solve?
 The main function of this template is to meet the requirements of modern applications in terms of scalability and maintainability over time. That is why it was implemented with the concept of clean architecture (Onion architecture).
@@ -11,15 +20,25 @@ The main motivation for this template is to use as many native features as possi
 
 Among other things the project includes this plugin https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture that will help you to build the rest of your application with the onion architecture concept https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html.
 
+Clean Architecture Resourses. Video and Blog
+[The Clean Architecture — Beginner’s Guide](https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165)
+[Mejora tu código aplicando Clean Architecture](https://www.youtube.com/watch?v=bdnpXzgj1oY)
+[Clean Architecture: La mejor forma de escalar y mantener tu código](https://www.youtube.com/watch?v=y3MWfPDmVqo)
+
 ## Configuration
 Global configuration of styles, api routes, navigation and dependency injection are located in src/config.
-* Navigation
+* ### navigation.ts
   - Define type of root navigation
   - If you created a new screen describe it here. Only Screens not Modals
-* Style
+* ### style.ts
   - Colors
   - Font Sizes
   - Spacings
+* ### di.ts
+  - Configuration of dependency injection. Check it when your run the command: yarn module
+
+* ### api.routes.ts
+  - Endpoinds of your API's
 
 ## Strucure folders
 ![Folders (1)](https://user-images.githubusercontent.com/46910469/202868548-5fd65a2d-992d-41d8-8101-013d13a74b69.png)
@@ -67,3 +86,11 @@ Pending from installation
 * The test are made in Linux - Ubuntu 20.04. If you have a problem related with CMAKE as me, You should install this packages: 
   - [sudo apt-get install -y libicu-dev](https://stackoverflow.com/questions/72937332/task-reactandroidhermes-engineconfigurebuildforhermes-failed-react-native-new)
   - [sudo apt-get install -y build-essential](https://stackoverflow.com/questions/6141608/cmake-make-program-not-found)
+
+if you want remove firebase uninstall this two packages: 
+- @react-native-firebase/app
+- @react-native-firebase/auth
+and implement the necesary login in this files:
+- ./index.js
+- ./src/ui/pages/home.tsx
+- ./src/modules/authentication/infrastructure/firebase.repository.ts
