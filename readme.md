@@ -53,6 +53,7 @@ Global configuration of styles, api routes, navigation and dependency injection 
 
 ## Features
 Verify the versions in the package.json
+- Bash Scripts
 - React Native 70.x
 - Typescript
 - [React Native Navigation](https://wix.github.io/react-native-navigation/docs/before-you-start/)
@@ -67,7 +68,7 @@ Pending from implementation
 
 Pending from installation
 - [ ] [Testing Library](https://testing-library.com/docs/react-native-testing-library/intro/)
-- [ ] Bash script for creation of modules and components
+- [ ] Detox E2E Testing
 
 ## Implemented software principles
 * Single responsibility
