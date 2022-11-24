@@ -20,24 +20,24 @@ The main motivation for this template is to use as many native features as possi
 
 Among other things the project includes this plugin https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture that will help you to build the rest of your application with the onion architecture concept https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html.
 
-Clean Architecture Resourses. Video and Blog
-[The Clean Architecture — Beginner’s Guide](https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165)
-[Mejora tu código aplicando Clean Architecture](https://www.youtube.com/watch?v=bdnpXzgj1oY)
-[Clean Architecture: La mejor forma de escalar y mantener tu código](https://www.youtube.com/watch?v=y3MWfPDmVqo)
+#### Clean Architecture Resourses. Video and Blog:
+- [The Clean Architecture — Beginner’s Guide](https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165)
+- [Mejora tu código aplicando Clean Architecture](https://www.youtube.com/watch?v=bdnpXzgj1oY)
+- [Clean Architecture: La mejor forma de escalar y mantener tu código](https://www.youtube.com/watch?v=y3MWfPDmVqo)
 
 ## Configuration
 Global configuration of styles, api routes, navigation and dependency injection are located in src/config.
-* ### navigation.ts
+* #### navigation.ts
   - Define type of root navigation
   - If you created a new screen describe it here. Only Screens not Modals
-* ### style.ts
+* #### style.ts
   - Colors
   - Font Sizes
   - Spacings
-* ### di.ts
+* #### di.ts
   - Configuration of dependency injection. Check it when your run the command: yarn module
 
-* ### api.routes.ts
+* #### api.routes.ts
   - Endpoinds of your API's
 
 ## Strucure folders
