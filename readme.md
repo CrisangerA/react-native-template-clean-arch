@@ -2,6 +2,7 @@
 ````
 npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-native-template-clean-arch.git
 ````
+I recomend this library after init project. (React Native Rename)[https://github.com/junedomingo/react-native-rename]
 
 # Why this template? What needs does it solve?
 The main function of this template is to meet the requirements of modern applications in terms of scalability and maintainability over time. That is why it was implemented with the concept of clean architecture (Onion architecture).
@@ -42,7 +43,12 @@ Verify the versions in the package.json
 - [React Hook Form](https://react-hook-form.com/get-started#ReactNative)
 - [React Query](https://tanstack.com/query/v4/docs/installation)
 
-- [][React Native Keychain](https://github.com/oblador/react-native-keychain) key Keychain Access for React Native
+Pending from implementation
+- [ ] [React Native Keychain](https://github.com/oblador/react-native-keychain) key Keychain Access for React Native
+
+Pending from installation
+- [ ] [Testing Library](https://testing-library.com/docs/react-native-testing-library/intro/)
+- [ ] Bash script for creation of modules and components
 
 ## Implemented software principles
 * Single responsibility
