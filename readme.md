@@ -10,7 +10,7 @@ yarn component nameOfYourComponent
 ````
 ### For create new modules:
 ````
-yarn component nameOfYourModule
+yarn module nameOfYourModule
 ````
 
 # Why this template? What needs does it solve?
