@@ -15,8 +15,10 @@ I recomend this library after init project. [React Native Rename](https://github
 
 
 ### For create new Component:
+-s simple only file
+-c complex file into a folder
 ````
-yarn component nameOfYourComponent
+yarn component (-s|-c) (core|layout|global) nameOfYourComponent
 ````
 ### For create new Context:
 ````

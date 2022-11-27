@@ -10,7 +10,7 @@
     "start:prod": "react-native run-android --variant=release",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "component": "./scripts/component.sh ${1}",
+    "component": "./scripts/component.sh ${1} ${2} ${3}",
     "module": "./scripts/module.sh ${1}",
     "context": "./scripts/context.sh ${1}",
     "hook": "./scripts/hook.sh ${1}",

@@ -5,8 +5,10 @@ npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-
 I recomend this library after init project. [React Native Rename](https://github.com/junedomingo/react-native-rename)
 
 ### For create new Component:
+-s simple only file
+-c complex file into a folder
 ````
-yarn component nameOfYourComponent
+yarn component (-s|-c) (core|layout|global) nameOfYourComponent
 ````
 ### For create new Context:
 ````
