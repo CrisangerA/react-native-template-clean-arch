@@ -4,13 +4,21 @@ npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-
 ````
 I recomend this library after init project. [React Native Rename](https://github.com/junedomingo/react-native-rename)
 
-### For create new components:
+### For create new Component:
 ````
 yarn component nameOfYourComponent
 ````
-### For create new modules:
+### For create new Context:
+````
+yarn context nameOfYourContext
+````
+### For create new Modules:
 ````
 yarn module nameOfYourModule
+````
+### For create new Hook:
+````
+yarn hook nameOfYourHook
 ````
 
 # Why this template? What needs does it solve?
@@ -42,8 +50,6 @@ Global configuration of styles, api routes, navigation and dependency injection 
 
 ## Strucure folders
 ![Folders (2)](https://user-images.githubusercontent.com/46910469/203866311-20f5fd19-2c83-4d28-8dbd-de91710d344d.png)
-
-
 ## Extra
 - Hermes Engine
 - Dependency Injection
@@ -53,15 +59,15 @@ Global configuration of styles, api routes, navigation and dependency injection 
 
 ## Features
 Verify the versions in the package.json
-- Bash Scripts
-- React Native 70.x
-- Typescript
-- [React Native Navigation](https://wix.github.io/react-native-navigation/docs/before-you-start/)
-- [Typed-Inject](https://github.com/nicojs/typed-inject) Lightweight dependency injection container for JavaScript/TypeScript
-- [React Native Async Storage](https://react-native-async-storage.github.io/async-storage/)
-- [Firebase](https://rnfirebase.io/)
-- [React Hook Form](https://react-hook-form.com/get-started#ReactNative)
-- [React Query](https://tanstack.com/query/v4/docs/installation)
+- [x] Bash Scripts
+- [x] React Native 70.x
+- [x] Typescript
+- [x] [React Native Navigation (Full Native)](https://wix.github.io/react-native-navigation/docs/before-you-start/)
+- [x] [Typed-Inject](https://github.com/nicojs/typed-inject) Lightweight dependency injection container for JavaScript/TypeScript
+- [x] [React Native Async Storage](https://react-native-async-storage.github.io/async-storage/)
+- [x] [Firebase](https://rnfirebase.io/)
+- [x] [React Hook Form](https://react-hook-form.com/get-started#ReactNative)
+- [x] [React Query](https://tanstack.com/query/v4/docs/installation)
 
 Pending from implementation
 - [ ] [React Native Keychain](https://github.com/oblador/react-native-keychain) key Keychain Access for React Native
@@ -69,6 +75,13 @@ Pending from implementation
 Pending from installation
 - [ ] [Testing Library](https://testing-library.com/docs/react-native-testing-library/intro/)
 - [ ] Detox E2E Testing
+
+## Extra
+- Hermes Engine
+- Dependency Injection
+- [React Native Turbo Modules (New Architecture)](https://reactnative.dev/docs/the-new-architecture/landing-page)
+- [Animations between screens](https://wix.github.io/react-native-navigation/docs/style-animations/)
+- [Eslint Plugin Hexagonal Architecture](https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture)
 
 ## Implemented software principles
 * Single responsibility

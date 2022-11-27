@@ -3,14 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "18": "react-native run-android --active-arch-only",
+    "18": "ORG_GRADLE_PROJECT_newArchEnabled=true && react-native run-android --active-arch-only",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "component": "./scripts/component.sh ${1}",
-    "module": "./scripts/module.sh ${1}"
+    "module": "./scripts/module.sh ${1}",
+    "context": "./scripts/context.sh ${1}",
+    "hook": "./scripts/hook.sh ${1}"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.17.11",
