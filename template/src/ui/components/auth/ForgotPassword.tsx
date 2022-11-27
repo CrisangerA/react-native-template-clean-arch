@@ -1,4 +1,11 @@
-import {BackHandler, StyleSheet, Text, ToastAndroid, View} from 'react-native';
+import {
+  Animated,
+  BackHandler,
+  StyleSheet,
+  Text,
+  ToastAndroid,
+  View,
+} from 'react-native';
 import React from 'react';
 import TextInput from '@components/@forms/TextInput';
 import {useForm} from 'react-hook-form';
@@ -11,23 +18,40 @@ import Button from '@components/core/Button';
 import {CardTitle} from '@components/core/Card';
 import injector from '@config/di';
 
+const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
 interface FormData {
   email: string;
   newPassword: string;
   code: string;
 }
 const implementation = injector.injectClass(AuthService);
-//const implementation = container.resolve(AuthService);
 export default function ForgotPassword() {
   const {dismissModal} = useNavigation();
-  const [showModal, setShowModal] = React.useState(false);
+  //const [showModal, setShowModal] = React.useState(true);
+  const opacity = React.useRef(new Animated.Value(0)).current;
+  function handleBack() {
+    Animated.timing(opacity, {
+      toValue: 0,
+      useNativeDriver: false,
+      duration: 236,
+    }).start();
+    delay(236).then(() => {
+      dismissModal();
+    });
+  }
   React.useEffect(() => {
-    delay(236).then(() => setShowModal(true));
+    delay(200).then(() => {
+      Animated.timing(opacity, {
+        toValue: 1,
+        useNativeDriver: false,
+      }).start();
+    });
     const a = BackHandler.addEventListener('hardwareBackPress', () => {
-      setShowModal(false);
-      return false;
+      handleBack();
+      return true;
     });
     return a.remove;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // @Form
   const {
@@ -43,7 +67,7 @@ export default function ForgotPassword() {
   });
   const onSubmit = async (data: FormData) => {
     try {
-      await implementation.forgotPassword(data.email);
+      await implementation.ForgotPassword(data.email);
       ToastAndroid.show('Email enviado. Revisa tu email', ToastAndroid.SHORT);
       dismissModal();
     } catch (e: any) {
@@ -57,7 +81,7 @@ export default function ForgotPassword() {
   };
   return (
     <View style={styles.root}>
-      {showModal && <BlurView style={styles.absolute} blurType="light" />}
+      <AnimatedBlurView style={[styles.absolute, {opacity}]} blurType="light" />
       <View style={styles.container}>
         <CardTitle title="Olvido Contraseña?" />
         <Text>

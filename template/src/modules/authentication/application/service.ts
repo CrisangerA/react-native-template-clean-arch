@@ -7,25 +7,32 @@ export default class AuthService {
     private readonly storage: StorageRepository,
   ) {}
   public static inject = ['AuthRepository', 'StorageRepository'] as const;
-  async signInWithEmail(email: string, password: string) {
-    const user = await this.repository.signInWithEmail(email, password);
+
+  async SignInWithEmail(email: string, password: string) {
+    const user = await this.repository.SignInWithEmail(email, password);
     this.storage.StoreLocalData('user', JSON.stringify(user));
     return user;
   }
-  async signInAnonymously() {
-    const user = await this.repository.signInAnonymously();
+  async SignInAnonymously() {
+    const user = await this.repository.SignInAnonymously();
     this.storage.StoreLocalData('user', JSON.stringify(user));
     return user;
   }
-  forgotPassword(email: string) {
-    return this.repository.forgotPassword(email);
+  async ForgotPassword(email: string) {
+    return this.repository.ForgotPassword(email);
   }
-  resetPassword(code: string, newPassword: string) {
-    return this.repository.resetPassword(code, newPassword);
+  async ResetPassword(code: string, newPassword: string) {
+    return this.repository.ResetPassword(code, newPassword);
   }
-  async registerNewUser(email: string, password: string) {
-    const user = await this.repository.register(email, password);
+  async RegisterNewUser(email: string, password: string) {
+    const user = await this.repository.Register(email, password);
     this.storage.StoreLocalData('user', JSON.stringify(user));
     return user;
+  }
+  async Logout() {
+    return this.repository.Logout();
+  }
+  GetCurrentUser() {
+    return this.repository.GetCurrentUser();
   }
 }

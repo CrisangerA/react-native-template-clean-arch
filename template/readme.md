@@ -1,4 +1,10 @@
 # How to start use?
+````
+yarn start
+````
+````
+yarn android
+````
 [Complete Docs](https://github.com/CrisangerA/react-native-template-clean-arch)
 I recomend this library after init project. [React Native Rename](https://github.com/junedomingo/react-native-rename)
 
@@ -39,3 +45,18 @@ Global configuration of styles, api routes, navigation and dependency injection 
 
 * api.routes.ts
   - Endpoinds of your API's
+
+### Troubleshoot
+* For Firebase you only need generate google-services.json credentials. See the docs
+
+* The test are made in Linux - Ubuntu 20.04. If you have a problem related with CMAKE as me, You should install this packages: 
+  - [sudo apt-get install -y libicu-dev](https://stackoverflow.com/questions/72937332/task-reactandroidhermes-engineconfigurebuildforhermes-failed-react-native-new)
+  - [sudo apt-get install -y build-essential](https://stackoverflow.com/questions/6141608/cmake-make-program-not-found)
+
+if you want remove firebase uninstall this two packages: 
+- @react-native-firebase/app
+- @react-native-firebase/auth
+and implement the necesary login in this files:
+- ./index.js
+- ./src/modules/authentication/infrastructure/firebase.repository.ts
+Your new implementation in infra should inherit authrepository located in the domain

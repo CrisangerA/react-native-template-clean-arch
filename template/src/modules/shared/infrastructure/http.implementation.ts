@@ -4,12 +4,13 @@ import {ApiResponse, ApiResponseValues} from '../domain/model';
 
 //@injectable()
 export default class Http implements HttpRepository {
-  constructor(
-    //@inject('API_ROUTE_ROOT') private readonly API_ROUTE_ROOT: string,
-    private readonly API_ROUTE_ROOT: string,
-  ) {}
-  public static inject = ['API_ROUTE_ROOT'] as const;
-  private getRoute = (route: string) => `${this.API_ROUTE_ROOT}${route}`;
+  // constructor(
+  //   //@inject('API_ROUTE_ROOT') private readonly API_ROUTE_ROOT: string,
+  //   private readonly API_ROUTE_ROOT: string,
+  // ) {}
+  // public static inject = ['API_ROUTE_ROOT'] as const;
+  //private getRoute = (route: string) => `${this.API_ROUTE_ROOT}${route}`;
+  private getRoute = (route: string) => `${route}`;
   private headers = () => {
     return {
       'content-type': 'application/json',
@@ -18,6 +19,7 @@ export default class Http implements HttpRepository {
   };
   private successCallback =
     (resolve: any, reject: any) => async (response: Response) => {
+      console.log(response.status);
       const data = await response.json();
       if (response.ok) {
         resolve(

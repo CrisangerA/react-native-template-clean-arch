@@ -48,10 +48,10 @@ export default function LoginScreen() {
   const onSubmit = async (data: FormData) => {
     try {
       if (isNewRegister) {
-        await implementation.registerNewUser(data.email, data.password);
+        await implementation.RegisterNewUser(data.email, data.password);
         ToastAndroid.show('Register success', ToastAndroid.SHORT);
       } else {
-        await implementation.signInWithEmail(data.email, data.password);
+        await implementation.SignInWithEmail(data.email, data.password);
         ToastAndroid.show('Welcome', ToastAndroid.SHORT);
       }
     } catch (e) {

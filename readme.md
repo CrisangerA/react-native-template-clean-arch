@@ -106,5 +106,5 @@ if you want remove firebase uninstall this two packages:
 - @react-native-firebase/auth
 and implement the necesary login in this files:
 - ./index.js
-- ./src/ui/pages/home.tsx
 - ./src/modules/authentication/infrastructure/firebase.repository.ts
+Your new implementation in infra should inherit authrepository located in the domain

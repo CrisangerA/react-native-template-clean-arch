@@ -1,10 +1,11 @@
 import User from './model';
 
 export default interface AuthRepository {
-  signInWithEmail(email: string, password: string): Promise<User>;
-  signInAnonymously(): Promise<User>;
-  forgotPassword(email: string): Promise<void>;
-  resetPassword(code: string, newPassword: string): Promise<void>;
-  register(email: string, password: string): Promise<User>;
-  //getCurrentUser(): Promise<User>;
+  SignInWithEmail(email: string, password: string): Promise<User>;
+  SignInAnonymously(): Promise<User>;
+  ForgotPassword(email: string): Promise<void>;
+  ResetPassword(code: string, newPassword: string): Promise<void>;
+  Register(email: string, password: string): Promise<User>;
+  GetCurrentUser(): User | null;
+  Logout(): Promise<void>;
 }

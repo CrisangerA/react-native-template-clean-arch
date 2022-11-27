@@ -3,13 +3,14 @@ import auth from '@react-native-firebase/auth';
 import User, {UserValues} from '../domain/model';
 
 export default class FirebaseRepository implements AuthRepository {
-  forgotPassword(email: string) {
+  ForgotPassword(email: string) {
     return auth().sendPasswordResetEmail(email);
   }
-  resetPassword(code: string, newPassword: string) {
+  ResetPassword(code: string, newPassword: string) {
     return auth().confirmPasswordReset(code, newPassword);
   }
-  signInWithEmail(email: string, password: string) {
+
+  SignInWithEmail(email: string, password: string) {
     return new Promise<User>((resolve, reject) =>
       auth()
         .signInWithEmailAndPassword(email, password)
@@ -27,8 +28,7 @@ export default class FirebaseRepository implements AuthRepository {
         .catch(reject),
     );
   }
-
-  signInAnonymously() {
+  SignInAnonymously() {
     return new Promise<User>((resolve, reject) =>
       auth()
         .signInAnonymously()
@@ -46,7 +46,7 @@ export default class FirebaseRepository implements AuthRepository {
         .catch(reject),
     );
   }
-  register(email: string, password: string) {
+  Register(email: string, password: string) {
     return new Promise<User>((resolve, reject) =>
       auth()
         .createUserWithEmailAndPassword(email, password)
@@ -63,5 +63,19 @@ export default class FirebaseRepository implements AuthRepository {
         )
         .catch(reject),
     );
+  }
+
+  GetCurrentUser() {
+    const user = auth().currentUser;
+    return new UserValues({
+      uid: user?.uid || '',
+      username: user?.displayName || '',
+      email: user?.email || '',
+      phoneNumber: user?.phoneNumber || '',
+      photoURL: user?.photoURL || '',
+    });
+  }
+  Logout() {
+    return auth().signOut();
   }
 }
