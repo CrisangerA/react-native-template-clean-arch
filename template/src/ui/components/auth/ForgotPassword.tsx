@@ -15,7 +15,7 @@ import {BlurView} from '@react-native-community/blur';
 import delay from '@modules/shared/domain/utils';
 import useNavigation from '@hooks/useNavigation';
 import Button from '@components/core/Button';
-import {CardTitle} from '@components/core/Card';
+import {CardTitle} from '@components/core/card';
 import injector from '@config/di';
 
 const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);

@@ -14,7 +14,7 @@ import AuthService from '@modules/authentication/application/service';
 import CardForm from '@components/auth/CardForm';
 import TextInput from '@components/@forms/TextInput';
 import useNavigation from '@hooks/useNavigation';
-import {CardTitle} from '@components/core/Card';
+import {CardTitle} from '@components/core/card';
 import Box from '@components/layout/Box';
 import Button from '@components/core/Button';
 import AuthBackground from '@components/auth/Background';

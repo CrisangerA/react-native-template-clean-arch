@@ -1,64 +1,33 @@
-# How to start use?
+# How to start use? 💻
 ````
-yarn start
+npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-native-template-clean-arch.git
 ````
-````
-yarn android
-````
-[Complete Docs](https://github.com/CrisangerA/react-native-template-clean-arch)
 I recomend this library after init project. [React Native Rename](https://github.com/junedomingo/react-native-rename)
+````
+$ npx react-native-rename AwesomeApp
+````
 
-#### Clean Architecture Resourses. Video and Blog:
-- [The Clean Architecture — Beginner’s Guide](https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165)
-- [Mejora tu código aplicando Clean Architecture](https://www.youtube.com/watch?v=bdnpXzgj1oY)
-- [Clean Architecture: La mejor forma de escalar y mantener tu código](https://www.youtube.com/watch?v=y3MWfPDmVqo)
-
-
-### For create new Component:
--s simple only file
--c complex file into a folder
+### ⌨️ For create new Component:
 ````
 yarn component (-s|-c) (core|layout|global) nameOfYourComponent
 ````
-### For create new Context:
+Type of component
+- -s simple: a single file with logic and styles
+- -c complex file into a folder
+Scope of component
+- core: base components for the graphical interface, overwriting of components of the main library. For example buttons, text, card and others.
+- layout: components that belong to the style of the application, inherits from core and global. For example the page component that is used with each page. A shared header, Titles and others.
+- global: at the developer's discretion. to separate the components of each page by folder or for components that are used a lot between pages. See the auth/ and @forms/ examples.
+
+### ⌨️ For create new Context:
 ````
 yarn context nameOfYourContext
 ````
-### For create new Modules:
+### ⌨️ For create new Modules:
 ````
 yarn module nameOfYourModule
 ````
-### For create new Hook:
+### ⌨️ For create new Hook:
 ````
 yarn hook nameOfYourHook
 ````
-
-## Configuration
-Global configuration of styles, api routes, navigation and dependency injection are located in src/config.
-* navigation.ts
-  - Define type of root navigation
-  - If you created a new screen describe it here. Only Screens not Modals
-* style.ts
-  - Colors
-  - Font Sizes
-  - Spacings
-* di.ts
-  - Configuration of dependency injection. Check it when your run the command: yarn module
-
-* api.routes.ts
-  - Endpoinds of your API's
-
-### Troubleshoot
-* For Firebase you only need generate google-services.json credentials. See the docs
-
-* The test are made in Linux - Ubuntu 20.04. If you have a problem related with CMAKE as me, You should install this packages: 
-  - [sudo apt-get install -y libicu-dev](https://stackoverflow.com/questions/72937332/task-reactandroidhermes-engineconfigurebuildforhermes-failed-react-native-new)
-  - [sudo apt-get install -y build-essential](https://stackoverflow.com/questions/6141608/cmake-make-program-not-found)
-
-if you want remove firebase uninstall this two packages: 
-- @react-native-firebase/app
-- @react-native-firebase/auth
-and implement the necesary login in this files:
-- ./index.js
-- ./src/modules/authentication/infrastructure/firebase.repository.ts
-Your new implementation in infra should inherit authrepository located in the domain

@@ -1,7 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 import {StyleSheet, Animated} from 'react-native';
 // modules
-import {Card} from '@components/core/Card';
+import {Card} from '@components/core/card';
 
 interface Props {
   animation: any;

@@ -1,39 +1,59 @@
-# How to start use?
+# How to start use? 💻
 ````
 npx react-native init AwesomeApp --template https://github.com/CrisangerA/react-native-template-clean-arch.git
 ````
 I recomend this library after init project. [React Native Rename](https://github.com/junedomingo/react-native-rename)
+````
+$ npx react-native-rename AwesomeApp
+````
 
-### For create new Component:
--s simple only file
--c complex file into a folder
+### ⌨️ For create new Component:
 ````
 yarn component (-s|-c) (core|layout|global) nameOfYourComponent
 ````
-### For create new Context:
+Type of component
+- -s simple: a single file with logic and styles
+- -c complex file into a folder
+Scope of component
+- core: base components for the graphical interface, overwriting of components of the main library. For example buttons, text, card and others.
+- layout: components that belong to the style of the application, inherits from core and global. For example the page component that is used with each page. A shared header, Titles and others.
+- global: at the developer's discretion. to separate the components of each page by folder or for components that are used a lot between pages. See the auth/ and @forms/ examples.
+
+### ⌨️ For create new Context:
 ````
 yarn context nameOfYourContext
 ````
-### For create new Modules:
+### ⌨️ For create new Modules:
 ````
 yarn module nameOfYourModule
 ````
-### For create new Hook:
+### ⌨️ For create new Hook:
 ````
 yarn hook nameOfYourHook
 ````
 
-# Why this template? What needs does it solve?
+# Why this template? What needs does it solve? 🤷‍♂️ 🤷‍♀️
 The main function of this template is to meet the requirements of modern applications in terms of scalability and maintainability over time. That is why it was implemented with the concept of clean architecture (Onion architecture).
 
 The main motivation for this template is to use as many native features as possible for the requirements of modern applications such as scalability and maintainability over time. The reason for using native platform features is because they offer better performance than features that run on the JS thread.
 
 Among other things the project includes this plugin https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture that will help you to build the rest of your application with the onion architecture concept https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html.
 
+__*If you have not yet heard of clean architecture or know anything about the concept, I invite you to first understand what this topic is about, since this is the main architecture under which the template is built.*__
+
 #### Clean Architecture Resourses. Video and Blog:
 - [The Clean Architecture — Beginner’s Guide](https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165)
 - [Mejora tu código aplicando Clean Architecture](https://www.youtube.com/watch?v=bdnpXzgj1oY)
 - [Clean Architecture: La mejor forma de escalar y mantener tu código](https://www.youtube.com/watch?v=y3MWfPDmVqo)
+
+# Table Contents
+* [Configuration](https://github.com/CrisangerA/react-native-template-clean-arch#configuration)
+* [Strucure folders](https://github.com/CrisangerA/react-native-template-clean-arch#strucure-folders)
+* [Features](https://github.com/CrisangerA/react-native-template-clean-arch#features)
+* [Extra](https://github.com/CrisangerA/react-native-template-clean-arch#extra)
+* [Patterns and best practices](https://github.com/CrisangerA/react-native-template-clean-arch#implemented-software-principles)
+* [Screenshots](https://github.com/CrisangerA/react-native-template-clean-arch#screenshots---uplabs-design)
+* [Troubleshoot](https://github.com/CrisangerA/react-native-template-clean-arch#troubleshoot)
 
 ## Configuration
 Global configuration of styles, api routes, navigation and dependency injection are located in src/config.
@@ -52,24 +72,18 @@ Global configuration of styles, api routes, navigation and dependency injection 
 
 ## Strucure folders
 ![Folders (2)](https://user-images.githubusercontent.com/46910469/203866311-20f5fd19-2c83-4d28-8dbd-de91710d344d.png)
-## Extra
-- Hermes Engine
-- Dependency Injection
-- [React Native Turbo Modules (New Architecture)](https://reactnative.dev/docs/the-new-architecture/landing-page)
-- [Animations between screens](https://wix.github.io/react-native-navigation/docs/style-animations/)
-- [Eslint Plugin Hexagonal Architecture](https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture)
 
 ## Features
 Verify the versions in the package.json
-- [x] Bash Scripts
-- [x] React Native 70.x
-- [x] Typescript
-- [x] [React Native Navigation (Full Native)](https://wix.github.io/react-native-navigation/docs/before-you-start/)
-- [x] [Typed-Inject](https://github.com/nicojs/typed-inject) Lightweight dependency injection container for JavaScript/TypeScript
-- [x] [React Native Async Storage](https://react-native-async-storage.github.io/async-storage/)
-- [x] [Firebase](https://rnfirebase.io/)
-- [x] [React Hook Form](https://react-hook-form.com/get-started#ReactNative)
-- [x] [React Query](https://tanstack.com/query/v4/docs/installation)
+- ✅ Bash Scripts
+- ✅ React Native 70.x
+- ✅ Typescript
+- ✅ [React Native Navigation (Full Native)](https://wix.github.io/react-native-navigation/docs/before-you-start/)
+- ✅ [Typed-Inject](https://github.com/nicojs/typed-inject) Lightweight dependency injection container for JavaScript/TypeScript
+- ✅ [React Native Async Storage](https://react-native-async-storage.github.io/async-storage/)
+- ✅ [Firebase](https://rnfirebase.io/)
+- ✅ [React Hook Form](https://react-hook-form.com/get-started#ReactNative)
+- ✅ [React Query](https://tanstack.com/query/v4/docs/installation)
 
 Pending from implementation
 - [ ] [React Native Keychain](https://github.com/oblador/react-native-keychain) key Keychain Access for React Native
@@ -85,7 +99,7 @@ Pending from installation
 - [Animations between screens](https://wix.github.io/react-native-navigation/docs/style-animations/)
 - [Eslint Plugin Hexagonal Architecture](https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture)
 
-## Implemented software principles
+## Patterns and best practices
 * Single responsibility
 * Liskov substitution
 * Interface segregation
