@@ -1,6 +1,6 @@
 import {Text, ToastAndroid} from 'react-native';
 import React from 'react';
-import {useForm} from 'react-hook-form';
+import {FormProvider, useForm} from 'react-hook-form';
 import AuthUseCase from '@modules/authentication/application/useCase';
 import useNavigation from '@hooks/useNavigation';
 import injector from '@config/di';
@@ -17,11 +17,7 @@ const useCase = injector.injectClass(AuthUseCase);
 export default function ForgotPassword() {
   const {dismissModal} = useNavigation();
   // @Form
-  const {
-    handleSubmit,
-    control,
-    formState: {isSubmitting},
-  } = useForm<FormData>({
+  const {...methods} = useForm<FormData>({
     defaultValues: {
       email: '',
       code: '',
@@ -44,18 +40,20 @@ export default function ForgotPassword() {
   };
   return (
     <ModalBottomSheet>
-      <CardTitle title="Olvido Contraseña?" />
-      <Text>
-        Ingresa tu email y te enviaremos un link para que puedas reestablecer tu
-        contraseña
-      </Text>
-      <TextInput label="Email" control={control} name="email" />
+      <FormProvider {...methods}>
+        <CardTitle title="Olvido Contraseña?" />
+        <Text>
+          Ingresa tu email y te enviaremos un link para que puedas reestablecer
+          tu contraseña
+        </Text>
+        <TextInput label="Email" name="email" />
 
-      <Button
-        title="SEND EMAIL"
-        onPress={handleSubmit(onSubmit)}
-        disabled={isSubmitting}
-      />
+        <Button
+          title="SEND EMAIL"
+          onPress={methods.handleSubmit(onSubmit)}
+          disabled={methods.formState.isSubmitting}
+        />
+      </FormProvider>
     </ModalBottomSheet>
   );
 }
