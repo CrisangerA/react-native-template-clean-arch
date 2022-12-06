@@ -51,8 +51,9 @@ __*If you have not yet heard of clean architecture or know anything about the co
 * [Strucure folders](https://github.com/CrisangerA/react-native-template-clean-arch#strucure-folders)
 * [Features](https://github.com/CrisangerA/react-native-template-clean-arch#features)
 * [Extra](https://github.com/CrisangerA/react-native-template-clean-arch#extra)
-* [Patterns and best practices](https://github.com/CrisangerA/react-native-template-clean-arch#implemented-software-principles)
+* [Patterns and best practices](https://github.com/CrisangerA/react-native-template-clean-arch#patterns-and-best-practices)
 * [Screenshots](https://github.com/CrisangerA/react-native-template-clean-arch#screenshots---uplabs-design)
+* [Remove Firebase](https://github.com/CrisangerA/react-native-template-clean-arch#remove-firebase)
 * [Troubleshoot](https://github.com/CrisangerA/react-native-template-clean-arch#troubleshoot)
 
 ## Configuration
@@ -85,19 +86,19 @@ Verify the versions in the package.json
 - ✅ [React Hook Form](https://react-hook-form.com/get-started#ReactNative)
 - ✅ [React Query](https://tanstack.com/query/v4/docs/installation)
 
-Pending from implementation
-- [ ] [React Native Keychain](https://github.com/oblador/react-native-keychain) key Keychain Access for React Native
+#### Pending from implementation:
+- [ ] [React Native Keychain](https://github.com/oblador/react-native-keychain) key Keychain Access for React Native.
 
-Pending from installation
+#### Pending from installation:
 - [ ] [Testing Library](https://testing-library.com/docs/react-native-testing-library/intro/)
 - [ ] Detox E2E Testing
 
 ## Extra
-- Hermes Engine
-- Dependency Injection
-- [React Native Turbo Modules (New Architecture)](https://reactnative.dev/docs/the-new-architecture/landing-page)
-- [Animations between screens](https://wix.github.io/react-native-navigation/docs/style-animations/)
-- [Eslint Plugin Hexagonal Architecture](https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture)
+- ⭐ Hermes Engine.
+- ⭐ Dependency Injection.
+- ⭐ [React Native Turbo Modules (New Architecture)](https://reactnative.dev/docs/the-new-architecture/landing-page)
+- ⭐ [Animations between screens](https://wix.github.io/react-native-navigation/docs/style-animations/)
+- ⭐ [Eslint Plugin Hexagonal Architecture](https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture)
 
 ## Patterns and best practices
 * Single responsibility
@@ -109,18 +110,20 @@ Pending from installation
 ## Screenshots - [Uplabs design](https://www.uplabs.com/posts/login-07f92b8f-d3d4-420f-8f2f-acc38566f989)
 ![MacBook Pro 16_ - 1](https://user-images.githubusercontent.com/46910469/202013754-936f02d3-33fe-4f57-aa9e-bfb6ea2f4f34.png)
 
+## Remove Firebase
+If you want remove firebase uninstall this two packages: 
+- @react-native-firebase/app
+- @react-native-firebase/auth
 
-### Troubleshoot
+and implement the necesary login in this files:
+- ./index.js
+- ./src/modules/authentication/infrastructure/firebase.repository.ts
+
+Your new implementation in infra should inherit authrepository located in the domain
+
+## Troubleshoot
 * For Firebase you only need generate google-services.json credentials. See the docs
 
 * The test are made in Linux - Ubuntu 20.04. If you have a problem related with CMAKE as me, You should install this packages: 
   - [sudo apt-get install -y libicu-dev](https://stackoverflow.com/questions/72937332/task-reactandroidhermes-engineconfigurebuildforhermes-failed-react-native-new)
   - [sudo apt-get install -y build-essential](https://stackoverflow.com/questions/6141608/cmake-make-program-not-found)
-
-if you want remove firebase uninstall this two packages: 
-- @react-native-firebase/app
-- @react-native-firebase/auth
-and implement the necesary login in this files:
-- ./index.js
-- ./src/modules/authentication/infrastructure/firebase.repository.ts
-Your new implementation in infra should inherit authrepository located in the domain
