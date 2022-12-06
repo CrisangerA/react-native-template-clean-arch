@@ -51,6 +51,8 @@ __*If you have not yet heard of clean architecture or know anything about the co
 * [Strucure folders](https://github.com/CrisangerA/react-native-template-clean-arch#strucure-folders)
 * [Features](https://github.com/CrisangerA/react-native-template-clean-arch#features)
 * [Extra](https://github.com/CrisangerA/react-native-template-clean-arch#extra)
+* [Components](https://github.com/CrisangerA/react-native-template-clean-arch#components)
+* [Hooks](https://github.com/CrisangerA/react-native-template-clean-arch#hooks)
 * [Patterns and best practices](https://github.com/CrisangerA/react-native-template-clean-arch#patterns-and-best-practices)
 * [Screenshots](https://github.com/CrisangerA/react-native-template-clean-arch#screenshots---uplabs-design)
 * [Remove Firebase](https://github.com/CrisangerA/react-native-template-clean-arch#remove-firebase)
@@ -100,12 +102,48 @@ Verify the versions in the package.json
 - ⭐ [Animations between screens](https://wix.github.io/react-native-navigation/docs/style-animations/)
 - ⭐ [Eslint Plugin Hexagonal Architecture](https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture)
 
+## Components
+Components located at ./src/ui/components/layout
+* Box
+* Margin
+* ModalBottomSheet
+* Not Records
+* Padding
+* Page
+
+Components located at ./src/ui/components/core
+* Card
+* CardTitle
+* Button
+* ScrollView
+* Text
+
+## Hooks
+* useQuery. Implementation of React Query
+````ts
+interface Props {
+  key: QueryKey;
+  service: () => Promise<any>;
+  options?: UseQueryOptions | any;
+}
+````
+
+* useNavigation. Implementation of React Native Navigation (Wix)
+````ts
+interface INavigationContext {
+  componentId: string;
+  goTo: (screen: string, props?: any) => void;
+  showModal: (name: string, props?: any) => void;
+  dismissModal: () => void;
+}
+````
+
 ## Patterns and best practices
-* Single responsibility
-* Liskov substitution
-* Interface segregation
-* Dependency inversion
-* Pattern repository
+* ⭐ Single responsibility
+* ⭐ Liskov substitution
+* ⭐ Interface segregation
+* ⭐ Dependency inversion
+* ⭐ Pattern repository
 
 ## Screenshots - [Uplabs design](https://www.uplabs.com/posts/login-07f92b8f-d3d4-420f-8f2f-acc38566f989)
 ![MacBook Pro 16_ - 1](https://user-images.githubusercontent.com/46910469/202013754-936f02d3-33fe-4f57-aa9e-bfb6ea2f4f34.png)

@@ -3,17 +3,16 @@ import React from 'react';
 // modules
 import Http from '@modules/shared/infrastructure/http.implementation';
 import AuthUseCase from '@modules/authentication/application/useCase';
+import {ApiResponse} from '@modules/shared/domain/model';
 // components
-import Page from '@components/layout/Page';
-import Text from '@components/core/Text';
-import Button from '@components/core/Button';
+import {Page, Padding} from '@components/layout';
+import {Text, Button} from '@components/core';
+import {MainStyles} from '@components/core/styles';
 // other
 import {COINGECKO_API_ROUTES, RICKMORTY_API_ROUTES} from '@config/api.routes';
 import injector from '@config/di';
 import useQuery from '@hooks/useQuery';
-import {MainStyles} from '@components/core/styles';
 import {Theme} from '@config/styles';
-import Padding from '@components/layout/Padding';
 
 // ---------------------------------------------------------------------
 const useCase = injector.injectClass(AuthUseCase);
@@ -48,12 +47,12 @@ function OptmimisticList({data, isLoading}: any) {
 export default function HomeScreen() {
   // @Hooks
   const [user] = React.useState(useCase.GetCurrentUser());
-  const {data: coingeko, isLoading: loadA} = useQuery({
+  const {data: coingeko, isLoading: loadA} = useQuery<ApiResponse>({
     key: [COINGECKO_API_ROUTES.coins.markets],
     service: () =>
       http.Get(COINGECKO_API_ROUTES.root + COINGECKO_API_ROUTES.coins.markets),
   });
-  const {data: rickmorty, isLoading: loadB} = useQuery({
+  const {data: rickmorty, isLoading: loadB} = useQuery<ApiResponse>({
     key: [RICKMORTY_API_ROUTES.characters],
     service: () =>
       http.Get(RICKMORTY_API_ROUTES.root + RICKMORTY_API_ROUTES.characters),

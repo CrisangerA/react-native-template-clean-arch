@@ -6,19 +6,19 @@ import React from 'react';
 import {createContext, PropsWithChildren} from 'react';
 
 // ---------------------------------------------------------------------------------------------------
-interface Props {
+interface INavigationContext {
   componentId: string;
   goTo: (screen: string, props?: any) => void;
   showModal: (name: string, props?: any) => void;
   dismissModal: () => void;
 }
-const initialState: Props = {
+const initialState: INavigationContext = {
   componentId: '',
   goTo: () => {},
   showModal: () => {},
   dismissModal: () => {},
 };
-const NavigationContext = createContext<Props>(initialState);
+const NavigationContext = createContext<INavigationContext>(initialState);
 
 function NavigationProvider({
   componentId,
