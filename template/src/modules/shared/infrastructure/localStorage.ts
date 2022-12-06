@@ -1,5 +1,4 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-//import {singleton} from 'tsyringe';
 import StorageRepository from '../domain/repository/storage.repository';
 
 //@singleton()

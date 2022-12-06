@@ -1,44 +1,61 @@
-import {StyleSheet, TextInput as NativeTextInput} from 'react-native';
+import {
+  StyleSheet,
+  TextInput as NativeTextInput,
+  TextInputProps,
+  View,
+} from 'react-native';
 import React from 'react';
-import {Controller} from 'react-hook-form';
+import {useController} from 'react-hook-form';
 import Text from '@components/core/Text';
-
-interface Props {
+import {Theme} from '@config/styles';
+// --------------------------------------------------------------------------------------
+type Props = {
   label: string;
-  control: any;
+  control?: any;
   name: string;
   rules?: any;
-}
-export default function TextInput({control, name, rules, label}: Props) {
+} & TextInputProps;
+export default function TextInput({name, label, rules, ...props}: Props) {
+  const {
+    fieldState: {error},
+    field: {onBlur, onChange, value},
+  } = useController({name, rules});
   return (
-    <Controller
-      control={control}
-      render={({field: {onChange, onBlur, value}}) => (
-        <>
-          <Text type="input" text={label} />
-          <NativeTextInput
-            style={styles.input}
-            onBlur={onBlur}
-            onChangeText={text => onChange(text)}
-            value={value}
-          />
-        </>
+    <View style={styles.root}>
+      <Text type="input" text={label} />
+      <NativeTextInput
+        style={styles.input}
+        onBlur={onBlur}
+        onChangeText={onChange}
+        value={value}
+        {...props}
+      />
+      {error && (
+        <Text
+          type="input"
+          text={error.message || error.type}
+          style={styles.error}
+        />
       )}
-      name={name}
-      rules={rules}
-    />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    marginBottom: 16,
+  },
   input: {
     borderRadius: 4,
-    paddingVertical: 4,
-    paddingHorizontal: 12,
-    marginBottom: 16,
-    //
     borderColor: '#bdbdbd',
     borderWidth: 1,
-    fontSize: 16,
+    fontSize: Theme.text.size.input,
+    paddingVertical: 4,
+    paddingHorizontal: 12,
+    color: Theme.color.input,
+  },
+  error: {
+    color: 'red',
+    textTransform: 'capitalize',
   },
 });

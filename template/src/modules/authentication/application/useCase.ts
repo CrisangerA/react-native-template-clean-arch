@@ -1,7 +1,7 @@
 import StorageRepository from '@modules/shared/domain/repository/storage.repository';
 import AuthRepository from '../domain/repository';
 
-export default class AuthService {
+export default class AuthUseCase {
   constructor(
     private readonly repository: AuthRepository,
     private readonly storage: StorageRepository,

@@ -7,9 +7,8 @@ import {
   ToastAndroid,
 } from 'react-native';
 import {useForm} from 'react-hook-form';
-//import {container} from 'tsyringe';
 // @Modules
-import AuthService from '@modules/authentication/application/service';
+import AuthUseCase from '@modules/authentication/application/useCase';
 // @Components
 import CardForm from '@components/auth/CardForm';
 import TextInput from '@components/@forms/TextInput';
@@ -29,17 +28,12 @@ const MODAL_TYPE = {
   FORGOT: 1,
   RESET: 2,
 };
-const implementation = injector.injectClass(AuthService);
-//const implementation = container.resolve(AuthService);
+const useCase = injector.injectClass(AuthUseCase);
 export default function LoginScreen() {
   const {showModal} = useNavigation();
   const [isNewRegister, setIsNewRegister] = React.useState(false);
   // @Form
-  const {
-    handleSubmit,
-    control,
-    formState: {isSubmitting},
-  } = useForm<FormData>({
+  const {...methods} = useForm<FormData>({
     defaultValues: {
       email: '',
       password: '',
@@ -48,10 +42,10 @@ export default function LoginScreen() {
   const onSubmit = async (data: FormData) => {
     try {
       if (isNewRegister) {
-        await implementation.RegisterNewUser(data.email, data.password);
+        await useCase.RegisterNewUser(data.email, data.password);
         ToastAndroid.show('Register success', ToastAndroid.SHORT);
       } else {
-        await implementation.SignInWithEmail(data.email, data.password);
+        await useCase.SignInWithEmail(data.email, data.password);
         ToastAndroid.show('Welcome', ToastAndroid.SHORT);
       }
     } catch (e) {
@@ -127,61 +121,49 @@ export default function LoginScreen() {
     <View style={styles.root}>
       <AuthBackground />
       <View style={[styles.container, root]}>
-        <CardForm animation={cardUp}>
+        <CardForm animation={cardUp} methods={methods}>
           <TouchableOpacity onPress={() => handleChangeView(false)}>
             <CardTitle title="SIGN IN" />
           </TouchableOpacity>
           {!isNewRegister && (
             <>
               <Box mb={8} />
-              <TextInput
-                control={control}
-                name="email"
-                label="Email"
-                rules={{required: true}}
-              />
+              <TextInput name="email" label="Email" rules={{required: true}} />
               <TextInput
                 label="Password"
-                control={control}
                 name="password"
                 rules={{required: true}}
               />
               <Button
                 title="START"
-                onPress={handleSubmit(onSubmit)}
-                disabled={isSubmitting}
+                onPress={methods.handleSubmit(onSubmit)}
+                disabled={methods.formState.isSubmitting}
               />
               <Button
                 title="FORGOT"
                 onPress={() => handleModal(true, MODAL_TYPE.FORGOT)}
-                disabled={isSubmitting}
+                disabled={methods.formState.isSubmitting}
               />
             </>
           )}
         </CardForm>
-        <CardForm animation={cardTwo}>
+        <CardForm animation={cardTwo} methods={methods}>
           <TouchableOpacity onPress={() => handleChangeView(true)}>
             <CardTitle title="CREATE NEW" />
           </TouchableOpacity>
           {isNewRegister && (
             <>
               <Box mb={8} />
-              <TextInput
-                control={control}
-                name="email"
-                label="Email"
-                rules={{required: true}}
-              />
+              <TextInput name="email" label="Email" rules={{required: true}} />
               <TextInput
                 label="Password"
-                control={control}
                 name="password"
                 rules={{required: true}}
               />
               <Button
                 title="DONE"
-                onPress={handleSubmit(onSubmit)}
-                disabled={isSubmitting}
+                onPress={methods.handleSubmit(onSubmit)}
+                disabled={methods.formState.isSubmitting}
               />
             </>
           )}

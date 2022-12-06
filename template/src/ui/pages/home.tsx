@@ -2,7 +2,7 @@ import {FlatList, Image, RefreshControl, StyleSheet, View} from 'react-native';
 import React from 'react';
 // modules
 import Http from '@modules/shared/infrastructure/http.implementation';
-import AuthService from '@modules/authentication/application/service';
+import AuthUseCase from '@modules/authentication/application/useCase';
 // components
 import Page from '@components/layout/Page';
 import Text from '@components/core/Text';
@@ -11,13 +11,16 @@ import Button from '@components/core/Button';
 import {COINGECKO_API_ROUTES, RICKMORTY_API_ROUTES} from '@config/api.routes';
 import injector from '@config/di';
 import useQuery from '@hooks/useQuery';
+import {MainStyles} from '@components/core/styles';
+import {Theme} from '@config/styles';
+import Padding from '@components/layout/Padding';
 
 // ---------------------------------------------------------------------
-const authService = injector.injectClass(AuthService);
+const useCase = injector.injectClass(AuthUseCase);
 const http = injector.injectClass(Http);
 
+const ITEM_SIZE = Theme.image.avatar.size + 8;
 function OptmimisticList({data, isLoading}: any) {
-  const ITEM_SIZE = 60;
   return (
     <FlatList
       style={styles.list}
@@ -27,10 +30,10 @@ function OptmimisticList({data, isLoading}: any) {
       keyExtractor={item => item.id}
       renderItem={({item: {name, image}}) => {
         return (
-          <View style={{width: ITEM_SIZE}}>
-            <Image source={{uri: image}} style={styles.image} />
+          <Padding p={4}>
+            <Image source={{uri: image}} style={MainStyles.imageAvatar} />
             <Text text={name} />
-          </View>
+          </Padding>
         );
       }}
       getItemLayout={(_, index) => ({
@@ -44,7 +47,7 @@ function OptmimisticList({data, isLoading}: any) {
 
 export default function HomeScreen() {
   // @Hooks
-  const [user] = React.useState(authService.GetCurrentUser());
+  const [user] = React.useState(useCase.GetCurrentUser());
   const {data: coingeko, isLoading: loadA} = useQuery({
     key: [COINGECKO_API_ROUTES.coins.markets],
     service: () =>
@@ -57,7 +60,7 @@ export default function HomeScreen() {
   });
   // @Events
   async function onPress() {
-    await authService.Logout();
+    await useCase.Logout();
   }
   return (
     <Page>
@@ -84,9 +87,4 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   root: {},
   list: {},
-  image: {
-    width: 60,
-    height: 60,
-    borderRadius: 4,
-  },
 });

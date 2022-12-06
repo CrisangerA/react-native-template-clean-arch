@@ -9,24 +9,28 @@ export const textStyles = StyleSheet.create({
     color: Theme.color.primary,
     fontSize: Theme.text.size.button,
     textAlign: 'center',
-    fontWeight: 'bold',
+    fontWeight: Theme.text.weight.button as any,
   },
   input: {
     fontSize: Theme.text.size.input,
     marginBottom: Theme.layout.margin(1),
-    color: '#212121',
+    color: Theme.color.input,
   },
   pageTitle: {
-    color: '#212121',
+    color: Theme.color.primary,
     fontSize: Theme.text.size.pageTitle,
     fontWeight: 'bold',
   },
   title: {
     fontSize: Theme.text.size.title,
-    fontWeight: 'bold',
+    fontWeight: Theme.text.weight.title as any,
   },
   subtitle: {
     fontSize: Theme.text.size.subtitle,
+  },
+  link: {
+    fontStyle: 'italic',
+    color: Theme.color.primary,
   },
 });
 
@@ -58,5 +62,57 @@ export const cardStyles = StyleSheet.create({
     fontSize: Theme.text.size.title,
     color: Theme.color.text,
     fontWeight: 'bold',
+  },
+});
+
+export const MainStyles = StyleSheet.create({
+  // LAYOUT
+  p5: {
+    padding: Theme.layout.padding(5),
+  },
+  ml2: {
+    marginLeft: 8,
+  },
+  flex: {
+    flex: 1,
+  },
+  alignEnd: {
+    alignItems: 'flex-end',
+  },
+  flexRow: {
+    flexDirection: 'row',
+  },
+  flexRowAlignCenter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  flexRowJustifyBetween: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  flexRowAlignCenterJustifyBetween: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  flexRowAlignEndJustifyBetween: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+  },
+  flexRowAlignStartJustifyBetween: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+  },
+  // IMAGES
+  imageAvatar: {
+    width: Theme.image.avatar.size,
+    height: Theme.image.avatar.size,
+    borderRadius: Theme.layout.borderRadius(4),
+  },
+  imageDetail: {
+    width: Theme.image.detail.size,
+    height: Theme.image.detail.size,
   },
 });

@@ -1,12 +1,25 @@
-import {Text as NativeText} from 'react-native';
+import {
+  StyleProp,
+  Text as NativeText,
+  TextStyle,
+  TextProps,
+} from 'react-native';
 import React from 'react';
 import {textStyles as styles} from './styles';
-interface Props {
+type Props = {
   text: string;
-  type: 'button' | 'text' | 'input' | 'pageTitle' | 'title' | 'subtitle';
-}
-const Text = ({text, type}: Props) => {
-  const style = [styles.text, styles[type]];
+  type:
+    | 'button'
+    | 'text'
+    | 'input'
+    | 'pageTitle'
+    | 'title'
+    | 'subtitle'
+    | 'link';
+  style?: StyleProp<TextStyle> | undefined;
+} & TextProps;
+const Text = ({text, type, style: styleProp}: Props) => {
+  const style = [styles.text, styles[type], styleProp];
   return <NativeText style={style}>{text}</NativeText>;
 };
 Text.defaultProps = {
