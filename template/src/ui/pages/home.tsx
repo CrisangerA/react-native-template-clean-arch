@@ -19,6 +19,14 @@ const useCase = injector.injectClass(AuthUseCase);
 const http = injector.injectClass(Http);
 
 const ITEM_SIZE = Theme.image.avatar.size + 8;
+function ListItem({name, image}: any) {
+  return (
+    <Padding p={4}>
+      <Image source={{uri: image}} style={MainStyles.imageAvatar} />
+      <Text text={name} />
+    </Padding>
+  );
+}
 function OptmimisticList({data, isLoading}: any) {
   return (
     <FlatList
@@ -27,13 +35,8 @@ function OptmimisticList({data, isLoading}: any) {
       refreshControl={<RefreshControl refreshing={isLoading} />}
       data={data}
       keyExtractor={item => item.id}
-      renderItem={({item: {name, image}}) => {
-        return (
-          <Padding p={4}>
-            <Image source={{uri: image}} style={MainStyles.imageAvatar} />
-            <Text text={name} />
-          </Padding>
-        );
+      renderItem={({item}) => {
+        return <ListItem {...item} />;
       }}
       getItemLayout={(_, index) => ({
         index,

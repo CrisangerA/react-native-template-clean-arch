@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import useNavigation from '@hooks/useNavigation';
 import Page from '@components/layout/Page';
@@ -13,7 +13,7 @@ export default function LandingScreen() {
   return (
     <Page>
       <AuthBackground />
-      <View style={styles.root}>
+      <View>
         <Text type="pageTitle" text="React Native | Native Template" />
         <Text type="title" text="Landing Screen" />
         <Text type="subtitle" text="* Hermes Engine" />
@@ -29,7 +29,3 @@ export default function LandingScreen() {
     </Page>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {},
-});
