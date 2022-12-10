@@ -7,30 +7,19 @@ I recomend this library after init project. [React Native Rename](https://github
 $ npx react-native-rename AwesomeApp
 ````
 
-### ⌨️ For create new Component:
-````
-yarn component (-s|-c) (core|layout|global) nameOfYourComponent
-````
-Type of component
-- -s simple: a single file with logic and styles
-- -c complex file into a folder
-Scope of component
-- core: base components for the graphical interface, overwriting of components of the main library. For example buttons, text, card and others.
-- layout: components that belong to the style of the application, inherits from core and global. For example the page component that is used with each page. A shared header, Titles and others.
-- global: at the developer's discretion. to separate the components of each page by folder or for components that are used a lot between pages. See the auth/ and @forms/ examples.
-
-### ⌨️ For create new Context:
-````
-yarn context nameOfYourContext
-````
-### ⌨️ For create new Modules:
-````
-yarn module nameOfYourModule
-````
-### ⌨️ For create new Hook:
-````
-yarn hook nameOfYourHook
-````
+# Table Contents
+* [Why this template](https://github.com/CrisangerA/react-native-template-clean-arch#why-this-template-what-needs-does-it-solve-%EF%B8%8F-%EF%B8%8F)
+* [Configuration](https://github.com/CrisangerA/react-native-template-clean-arch#configuration)
+* [Strucure folders](https://github.com/CrisangerA/react-native-template-clean-arch#strucure-folders)
+* [Features](https://github.com/CrisangerA/react-native-template-clean-arch#features)
+* [Extra](https://github.com/CrisangerA/react-native-template-clean-arch#extra)
+* [Scripts](https://github.com/CrisangerA/react-native-template-clean-arch#scripts)
+* [Components](https://github.com/CrisangerA/react-native-template-clean-arch#components)
+* [Hooks](https://github.com/CrisangerA/react-native-template-clean-arch#hooks)
+* [Patterns and best practices](https://github.com/CrisangerA/react-native-template-clean-arch#patterns-and-best-practices)
+* [Screenshots](https://github.com/CrisangerA/react-native-template-clean-arch#screenshots---uplabs-design)
+* [Remove Firebase](https://github.com/CrisangerA/react-native-template-clean-arch#remove-firebase)
+* [Troubleshoot](https://github.com/CrisangerA/react-native-template-clean-arch#troubleshoot)
 
 # Why this template? What needs does it solve? 🤷‍♂️ 🤷‍♀️
 The main function of this template is to meet the requirements of modern applications in terms of scalability and maintainability over time. That is why it was implemented with the concept of clean architecture (Onion architecture).
@@ -45,18 +34,6 @@ __*If you have not yet heard of clean architecture or know anything about the co
 - [The Clean Architecture — Beginner’s Guide](https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165)
 - [Mejora tu código aplicando Clean Architecture](https://www.youtube.com/watch?v=bdnpXzgj1oY)
 - [Clean Architecture: La mejor forma de escalar y mantener tu código](https://www.youtube.com/watch?v=y3MWfPDmVqo)
-
-# Table Contents
-* [Configuration](https://github.com/CrisangerA/react-native-template-clean-arch#configuration)
-* [Strucure folders](https://github.com/CrisangerA/react-native-template-clean-arch#strucure-folders)
-* [Features](https://github.com/CrisangerA/react-native-template-clean-arch#features)
-* [Extra](https://github.com/CrisangerA/react-native-template-clean-arch#extra)
-* [Components](https://github.com/CrisangerA/react-native-template-clean-arch#components)
-* [Hooks](https://github.com/CrisangerA/react-native-template-clean-arch#hooks)
-* [Patterns and best practices](https://github.com/CrisangerA/react-native-template-clean-arch#patterns-and-best-practices)
-* [Screenshots](https://github.com/CrisangerA/react-native-template-clean-arch#screenshots---uplabs-design)
-* [Remove Firebase](https://github.com/CrisangerA/react-native-template-clean-arch#remove-firebase)
-* [Troubleshoot](https://github.com/CrisangerA/react-native-template-clean-arch#troubleshoot)
 
 ## Configuration
 Global configuration of styles, api routes, navigation and dependency injection are located in src/config.
@@ -102,24 +79,51 @@ Verify the versions in the package.json
 - ⭐ [Animations between screens](https://wix.github.io/react-native-navigation/docs/style-animations/)
 - ⭐ [Eslint Plugin Hexagonal Architecture](https://www.npmjs.com/package/eslint-plugin-hexagonal-architecture)
 
+## Scripts
+### ⌨️ For create new Context:
+````
+yarn context nameOfYourContext
+````
+### ⌨️ For create new Modules:
+````
+yarn module nameOfYourModule
+````
+
 ## Components
+### ⌨️ For create new Component:
+````
+yarn component (-s|-c) (core|layout|global) nameOfYourComponent
+````
+Descriptions of aguments:
+- component:
+  - -s simple: a single file with logic and styles
+  - -c complex file into a folder
+- Scope of component
+  - core: base components for the graphical interface, overwriting of components of the main library. For example buttons, text, card and others.
+  - layout: components that belong to the style of the application, inherits from core and global. For example the page component that is used with each page. A shared header, Titles and others.
+  - global: at the developer's discretion. to separate the components of each page by folder or for components that are used a lot between pages. See the auth/ and @forms/ examples.
+
 Components located at ./src/ui/components/layout
-* Box
-* Margin
-* ModalBottomSheet
-* Not Records
-* Padding
-* Page
+  * Box
+  * Margin
+  * ModalBottomSheet
+  * Not Records
+  * Padding
+  * Page
 
 Components located at ./src/ui/components/core
-* Card
-* CardTitle
-* Button
-* ScrollView
-* Text
+  * Card
+  * CardTitle
+  * Button
+  * ScrollView
+  * Text
 
 ## Hooks
-* useQuery. Implementation of React Query
+### ⌨️ For create new Hook:
+````
+yarn hook nameOfYourHook
+````
+- useQuery. Implementation of React Query
 ````ts
 interface Props {
   key: QueryKey;
@@ -128,7 +132,7 @@ interface Props {
 }
 ````
 
-* useNavigation. Implementation of React Native Navigation (Wix)
+- useNavigation. Implementation of React Native Navigation (Wix)
 ````ts
 interface INavigationContext {
   componentId: string;
